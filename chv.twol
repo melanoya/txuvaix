@@ -5,6 +5,7 @@ Alphabet
  %{Ă%}:ӑ %{Ă%}:ӗ %{Ă%}:0
  %{м%}:м %{м%}:0
 
+
 ;
 
 Sets 
@@ -25,10 +26,15 @@ Rules
 "Back vowel harmony for archiphoneme {A}"
 %{A%}:а <=> BackVow: [ Cns: | %>: ]+ _ ; 
 
+
 "Back vowel harmony for archiphoneme {Ă}"
 %{Ă%}:ӑ <=> BackVow: [ ArchiCns: | Cns: | %>: ]+ _ ;
         except
                                      %{м%}: %>:  _ н ; 
 
-"Non surface {Ã} in plural genitive"
+"constraining %{A%} to be 0 when following %{м%}"
 %{Ă%}:0 <=> %{м%}: %>: _ н ; 
+
+
+"м to be 0 when genitive pl"
+%{м%}:0 <=> _ %>: ( :0 ) н ;
