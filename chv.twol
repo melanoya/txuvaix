@@ -5,6 +5,7 @@ Alphabet
  %{Ă%}:ӑ %{Ă%}:ӗ %{Ă%}:0
  %{м%}:м %{м%}:0
  %{н%}:н %{н%}:0
+ %{Р%}:р %{Р%}:т
 
 
 ;
@@ -33,7 +34,8 @@ Rules
 "Back vowel harmony for archiphoneme {Ă}"
 %{Ă%}:ӑ <=> BackVow: [ ArchiCns: | Cns: | %>: ]+ _ ;
         except
-                                     %{м%}: %>:  _ н ; 
+                                     %{м%}: %>:  _ н;
+
 
 "constraining %{A%} to be 0 when following %{м%}"
 %{Ă%}:0 <=>  %{м%}:  %>: _ н ;
@@ -42,3 +44,6 @@ Rules
 "м to be 0 when genitive pl"
 %{м%}:0 <=> _ %>: ( :0 ) [ н | %{н%}:н ] ;
 						
+
+!"constraining Ă to be 0 when gen"
+!%{Ă%}:0 <=> Vow %>: _ ;
